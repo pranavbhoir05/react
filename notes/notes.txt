@@ -1,0 +1,81 @@
+
+vid no 5 virtual Dom , fiber and reconciliation
+
+1 . undersatanding createroot , behind the scene
+
+*why does createroot creates its dom ? 
+ans : React creates a virtual DOM, compares it with the real DOM, and updates only the changed parts. Without this, the browser re-renders larger sections, which is less efficient. In advanced use, React allows tracing values in a tree-like structure, updating only the changed part.
+
+###########################################################################################
+
+react fiber :
+                React Fiber is the new reconciliation engine introduced in React 16 to improve rendering performance and responsiveness. It breaks rendering into small units of work that can be managed more efficiently.
+
+(optional) : React Fiber is an algorithm — specifically, a new reconciliation algorithm for React. It defines how React updates and re-renders components by breaking work into units (fibers), prioritizing tasks, and supporting features like pause, abort, and reuse. It’s not just a library or feature, but the underlying algorithm that powers React’s rendering.
+
+Key points for interview:
+
+* **Incremental Rendering:** Updates are split into chunks instead of blocking the main thread.
+* **Prioritization:** Urgent tasks like animations or user input are handled first.
+* **Pause:** Rendering can be paused to let the browser handle critical work and then resumed.
+* **Abort:** Ongoing rendering can be canceled if a higher-priority update arrives.
+* **Reuse:** Already completed work can be reused to avoid redundant processing.
+* **Better Error Handling:** Built-in support for error boundaries.
+* **Foundation for Concurrency:** Enables features like Concurrent Mode and Suspense.
+
+#####################################################################################
+
+Reconciliation:
+                Reconciliation is React’s process of comparing the new virtual DOM with the previous one and updating only the changed parts in the real DOM.
+
+####################################################################################################
+
+**React Fiber Notes – Interview Perspective:**
+
+**1. Purpose of Fiber:**
+
+* Enables React to use **scheduling** for better performance.
+* Allows:
+
+  * Pause work** and resume later
+  * Assign priorities** to different updates
+  * Reuse** previously completed work
+  * Abort** unnecessary work
+
+**2. What is a Fiber:**
+
+* A fiber is the **unit of work** in React’s rendering process.
+* It is a lower-level abstraction than what developers usually see.
+* Breaking work into fibers lets React manage updates efficiently, prioritize tasks, and improve UI responsiveness.
+
+**3. Key Scheduling Concepts:**
+
+* Not all UI updates need immediate execution.
+* Different updates have different priorities (animations high, data updates lower).
+* **Push-based:** programmer schedules work.
+* **Pull-based:** framework schedules intelligently.
+* Original React: re-renders entire subtrees immediately.
+* Fiber: overhauls reconciliation to leverage scheduling and incremental rendering.
+
+#########################################################################
+
+for more info visit : https://github.com/acdlite/react-fiber-architecture
+
+****************************************************************************************__________________________________________
+vid no 6
+
+go to tailwind side for configuration in vite
+follow steps of site
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
+
+   "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+paste this in tailwind config
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+paste this in top corner in index.css
+
+npm run dev
