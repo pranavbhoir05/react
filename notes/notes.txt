@@ -57,25 +57,75 @@ Reconciliation:
 * Original React: re-renders entire subtrees immediately.
 * Fiber: overhauls reconciliation to leverage scheduling and incremental rendering.
 
-#########################################################################
+#########################################################
 
 for more info visit : https://github.com/acdlite/react-fiber-architecture
 
 ****************************************************************************************__________________________________________
-vid no 6
+vid no 6  : Tailwind and Props in reactjs
 
+
+tailwind dont directly work to access tailwind we need add tailwind dependencis
 go to tailwind side for configuration in vite
 follow steps of site
-npm install -D tailwindcss@3 postcss autoprefixer
-npx tailwindcss init -p
+1. npm install -D tailwindcss@3 postcss autoprefixer
+2. npx tailwindcss init -p
 
-   "./index.html",
+3.    "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
 paste this in tailwind config
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+4.  @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 paste this in top corner in index.css
 
-npm run dev
+5. npm run dev
+
+also install Tailwind CSS IntelliSense
+also react snippits
+
+#############################################################################
+
+props: propd makes component reuseable
+     
+Definition: Props are read-only inputs that a parent component passes to a child component to configure or control its behavior.
+Purpose: They allow component reusability and dynamic rendering by providing external data to child components.
+
+Key Characteristics:
+
+1. Immutable inside the child component.
+2. Enable unidirectional data flow (parent → child).
+3. Different from state, which is internal and mutable.
+
+_________________________________________________________
+
+function Child({ name }) {
+  return <p>Hello {name}</p>;
+}
+
+function Parent() {
+  return <Child name="Pranav" />;
+}
+
+
+Here, name is a prop passed from Parent to Child.
+
+################################################################
+
+we'll craete new compoent which will return card
+create folder name componets created file Card.jsx , and use shorcut rfce for function
+add img code ion that function , now import card in app.jsx,
+you can also repeat the same card , but both cards contain same name 
+what if i want value from array or database , just like flipkard,ecommers web, even if we apply lopp, but every card contain diffrent information
+and all the things can be done by using props
+
+ after importing card <card /> we need to pass value in it as if want to change in multiple cards
+ * you always need to declear variable to pass values in array or in object {} format, you just cant directly pass value in <card />
+ *in card function you need to destuctre {username} instead of writing props.username and all
+ *while adding button, mentioning click me in <card/< isnt enough, you also need to declear in e.g : function ({btn text})
+ *even if click me or visit me values dont exist , that time another value can be fill if u mention in function 
+
+ in this video i learn :  tailwind and its components,card
+                          create our own components and passing any value in componets and also hangling
+                          props basis, its extraction and also default values
