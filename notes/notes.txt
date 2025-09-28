@@ -129,3 +129,9 @@ and all the things can be done by using props
  in this video i learn :  tailwind and its components,card
                           create our own components and passing any value in componets and also hangling
                           props basis, its extraction and also default values
+
+********************************************************************************************************************
+
+video no 9 : Building a react project | bgChanger
+
+in this project we'll use vite to implement our project , also add tailwind if you want (https://v3.tailwindcss.com/docs/guides/vite)
