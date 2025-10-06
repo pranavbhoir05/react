@@ -135,3 +135,16 @@ and all the things can be done by using props
 video no 9 : Building a react project | bgChanger
 
 in this project we'll use vite to implement our project , also add tailwind if you want (https://v3.tailwindcss.com/docs/guides/vite)
+
+
+
+
+**********************************************************************************************************************
+
+video no 10 : useEffect, useRef and useCallback with 1 project
+
+
+*after creating usestate for each button , now enerating password (useCallback hook : Memoization)
+*create method for password genertor (function) , but before creating this if you see whenever i click on number or character that function must call on that time
+*just cause its re-rendering, we need to figure out the way to write it in optimiz way which is (useCallback)
+*in our code numbers and character both are dependecy, cause whenever i make changes in then useCallback() function must run

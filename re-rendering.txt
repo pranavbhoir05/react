@@ -1,0 +1,16 @@
+1. Performance issue (Too many re-renders)
+
+Every time a component re-renders:
+
+*The component function runs again
+*All its code runs again
+*All child components might also re-render
+
+If your function is heavy (loops, logic, API calls) → this wastes CPU, makes UI laggy.
+
+So React provides optimization hooks:
+
+*useMemo → cache values
+*useCallback → cache functions
+
+These reduce unnecessary re-renders.

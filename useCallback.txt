@@ -1,0 +1,21 @@
+hiteshsir: i have function ,use jitna ho sake use cache me rakho,
+ matlab use memorie me rakho, and job again use run karunga to 
+ jitna part pehele ka use hota he use use karo and jo nahi ho raha wo nahi ho raha
+
+both are same***************************
+
+chatgpt :
+"useCallback ka matlab: function ko cache me rakho,
+ jitna part pehle se bana hai use memory se lo,
+ fir sirf zarurat ke hisab se update karo."
+
+What React really does
+
+useCallback(fn, deps)
+→ React says:
+
+“I’ll remember (cache) this function fn in memory.
+Next render, I’ll check if any deps changed.
+
+If not changed → I’ll reuse old function (no new one).
+If changed → I’ll make a new function and store that.”
