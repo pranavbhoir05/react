@@ -148,3 +148,25 @@ video no 10 : useEffect, useRef and useCallback with 1 project
 *create method for password genertor (function) , but before creating this if you see whenever i click on number or character that function must call on that time
 *just cause its re-rendering, we need to figure out the way to write it in optimiz way which is (useCallback)
 *in our code numbers and character both are dependecy, cause whenever i make changes in then useCallback() function must run
+
+in this vid i learn:  
+        useCallback and Memoization
+        useEffect and its use
+        useRef
+
+****************************************************************************************************************************************
+
+video no 11 : Custom hooks in react | currency Project
+
+insted diving in this entire project, you better divide this project in pieces:
+
+1. make project setup and add essential tools(vite, Tailwind)
+2. create custome hook
+3. creating component (we'll create 2 file for 2 Approaches)
+4. Approach for exporting component
+5. 39:10 - 43:28  useId hook
+43:28 - 47:00  state setup
+47:00 - 58:13  working on functionality
+58:13 - 59:30  debuging
+59:30 - 1:00:00 checking functionality
+1:00:00 - 1:01:37 assignment

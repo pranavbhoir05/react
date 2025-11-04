@@ -20,17 +20,23 @@ function App() {
       1 )
       pass += str.charAt(char)
     }
-    setPassword(pass)
-                                                          //usecallback memoizes the function so that it is not recreated on every render unless its dependencies change
-  },[length,numberAllowed,characterAllowed,setPassword]) //in useCallback we are taling optimization of function so we are passing dependencies here
+
+     setPassword(pass)    // setPassword(pass) tells React: “Update the Password state to this new value.” 
+ 
+    },[length, numberAllowed, characterAllowed, setPassword])
+  //usecallback memoizes the function so that it is not recreated on every render unless its dependencies change
+  //in useCallback we are taling optimization of function so we are passing dependencies here
   
   const copyPasswordToClipboard = useCallback(()=> {
     passwordRef.current?.select()
     passwordRef.current?.setSelectionRange(0,9999) //incase if you want limited selection
     window.navigator.clipboard.writeText(Password)
 
-  },[Password]) //we can also optimize this function using useCallback
+  },[Password]) 
 
+  //in simple words useCallback is for optimization
+  //and useeffect is for (if any changes occers in dependencies then function will run again) 
+// useCallback doesn’t run anything by itself. useEffect runs code automatically.
   useEffect(() => {  //useEffect calls when page loads and when any dependency changes
     passwordGenerator()
   } , [length,numberAllowed,characterAllowed,passwordGenerator])  //in useEffect if any changes happen in these dependencies then run this function
