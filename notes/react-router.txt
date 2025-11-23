@@ -1,0 +1,26 @@
+1. Single Page Application (SPA) navigation
+
+React apps don’t reload the page when changing views.
+React Router handles URL-based navigation inside the same page, keeping the app fast and smooth.
+____________________________________________________________
+2. Route-to-component mapping
+
+It decides which component to render based on the URL:
+ syntax : <Route path="/about" element={<About />} />
+
+ So /about → shows About component without reloading.
+______________________________________________________________
+3. Keeps browser history & navigation logic
+
+Works with Back / Forward buttons
+Allows redirects, nested routes, protected routes, etc.
+Manages history using the browser’s native History API
+__________________________________________________________________
+4. Enables dynamic navigation
+
+With <Link> and <NavLink>, you navigate by changing route without full reload:
+syntax : <Link to="/home">Home</Link>
+______________________________________________________________
+. In short for notes
+React Router lets React apps handle multiple views (pages) inside 
+one HTML file — enabling smooth, reload-free navigation, dynamic routing, and proper URL management.

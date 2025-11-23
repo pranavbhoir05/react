@@ -1,0 +1,27 @@
+#first i use vite and tailwind to create this react setup
+*then create seperate folder for components and hooks then create header and footer in components folder,also create header.jsx
+*then create react router (npm install react-router-dom)
+
+#whenever we install react-router we get access of link and navlink
+now import link and navlink
+1. we use link instead (a) tag (we use link to prevent page reloading again and again)
+2. <NavLink> works like <Link> but it automatically detects when its to path matches the current URL.
+3. isActive is predefined by React Router (you don’t create it).
+You can rename it while destructuring:
+
+#so we made changes in navlink whenever we go on home it will check if its active or not and will change color
+
+*now create home component too and same copy paste code from notes as we did before
+*now we'll asseble all components in app.jsx, but we face  error in this so we'll make few changes in main.jsx , even we do not need app.jsx
+*in main.jsx we remove /app and directly add component reactProvide in this it require one thing which is router , we also gonna need to create router
+*in main.jsx create method which is createbrowserRouter([]) which takes array inside it ,  this method come from react router
+*in main.jsx , in that array we add object , where we add path but before that we miss few thing this
+
+# the only thing i wanted from begining was header and footer should alwasy be same position, and its inner commponet supposed to change
+#so i'll create seperate home commponet and same thing i'll do with contact us 
+
+*create new file in src folder with name (layout) or instead u can do same operation in app.jsx
+*now in that file rfce then in <> return header,footer 
+*but i wanted to pass things dynamically so we importing outlet and also add outlet in fragments
+*now in main.jsx give path / ,(/) is top level elenment , so all the nesting is happening inside of it . and elenment : <Layot/> which we already cr3eated
+*now add children inside of it and just cause there are multiple values so i hade to create children and added array

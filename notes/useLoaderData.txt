@@ -1,0 +1,32 @@
+✅ useLoaderData (React Router) — Short Notes
+What it is:
+A hook that lets you read data returned by a route’s loader.
+
+✅ Why it's used
+To fetch data before the component renders.
+No useEffect, no loading flicker — data is ready immediately.
+
+✅ Route setup
+You attach a loader function to a route:
+
+<Route
+  path="/users"
+  element={<Users />}
+  loader={async () => {
+    const res = await fetch("/api/users");
+    return res.json();
+  }}
+/>
+
+✅ What loader can return
+JSON
+
+Objects
+
+Arrays
+
+Anything (even errors if thrown)
+
+
+✅ One-line summary
+useLoaderData gives you the data returned by the route’s loader, so the component renders with data already loaded — no useEffect needed.

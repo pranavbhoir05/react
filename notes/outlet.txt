@@ -1,0 +1,50 @@
+What Outlet does ?
+<Outlet> is a placeholder where child routes will be rendered.
+
+Why it's needed
+When you have nested routes, the parent layout stays visible, and the child component appears inside the <Outlet>.
+
+Example
+Routes:
+
+<Route 
+       path="/dashboard" 
+       element={<DashboardLayout />}>
+  <Route 
+        path="home" 
+        element={<Home />} />
+  <Route 
+         path="settings" 
+         element={<Settings />} />
+</Route>
+_________________________________________________________________________________
+
+DashboardLayout.jsx:
+
+function DashboardLayout() {
+  return (
+    <div>
+      <Navbar />
+      <Sidebar />
+      <Outlet />   // child route comes here
+    </div>
+  );
+}
+_________________________________________________________________________________
+
+How it works
+*Visit /dashboard/home → <Home /> appears inside <Outlet>
+*Visit /dashboard/settings → <Settings /> appears inside <Outlet>
+
+The layout (Navbar, Sidebar) never reloads, only the part inside <Outlet> changes.
+_________________________________________________________________________________
+
+definition : Outlet renders the child route’s component inside a parent layout, enabling nested routing in React Router.
+_________________________________________________________________________________
+
+IMP : 
+
+⭐ One-line note for your documentation
+In React Router, child routes must not start with /. Without the slash,
+they become nested and render inside <Outlet>. 
+With a slash, they become top-level routes and skip the parent layout.

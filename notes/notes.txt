@@ -170,3 +170,13 @@ insted diving in this entire project, you better divide this project in pieces:
 58:13 - 59:30  debuging
 59:30 - 1:00:00 checking functionality
 1:00:00 - 1:01:37 assignment
+
+*****************************************************************************
+
+vid no 12 :
+
+reactRouterDom 
+routerProvider , createBrowserRouter , createRoutesFromElements
+outlet()
+useParams()
+useLoaderData()   which is optimise way insted using useEffect

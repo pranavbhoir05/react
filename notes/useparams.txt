@@ -1,0 +1,31 @@
+
+✅ useParams (React Router) — Short Notes
+What it is:
+A hook that lets you read dynamic URL parameters from the current route.
+
+✅ When do you need it?
+When your route has a dynamic segment, like:
+
+<Route path="/user/:id" element={<User />} />
+
+Here, :id is a URL param.
+
+
+✅ One-liner summary
+
+useParams reads values from dynamic :segments in the URL so you can use them inside the component.
+
+✅ How to use
+Inside the component rendered by that route:
+
+import { useParams } from "react-router-dom";
+
+function User() {
+  const { id } = useParams();
+  return <h1>User ID: {id}</h1>;
+}
+Visiting:
+
+/user/10
+➡️ id = "10"
+
