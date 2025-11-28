@@ -1,0 +1,72 @@
+Using Redux + Context API together is normal, but only if you use them for different purposes.
+Here’s the direct explanation so you know if what you’re doing is correct or unnecessary.
+
+✅ Correct Use Case: Redux + Context together
+Use Redux for:
+
+Big global state
+Data from server
+Cart, products, orders
+Auth tokens
+API caching (RTK Query)
+
+Use Context API for:
+
+Small UI-only state
+Theme (light/dark)
+Language
+Sidebar open/close
+Modal visibility
+Page-level preferences
+
+➜ Redux handles app logic. Context handles small UI preferences.
+
+This is the cleanest architecture.
+
+_______________________________________________________________
+
+⚠️ Wrong Use Case (avoid)
+Using Redux AND Context for the same state, like:
+
+Theme in Redux + Theme in Context
+
+Cart in Redux + Cart in Context
+
+Auth in both
+
+Products in both
+
+This creates duplicate state, confusion, and bugs.
+
+_______________________________________________________________
+
+📌 When both exist in a project
+Example of a proper setup:
+
+Redux state :
+user
+cart
+products
+orders
+notifications
+wishlist
+
+Context state :
+current theme
+sidebar collapsed/open
+modal open/close
+active tab
+app language
+page filters (UI-only)
+_
+This is ideal.
+
+______________________________________________________________
+
+📌 Why use both?
+Because Redux is heavy for tiny UI stuff, and Context is weak for big data logic.
+
+So both together = perfect balance.
+
+___________________________________________________________
+

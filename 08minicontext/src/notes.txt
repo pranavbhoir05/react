@@ -1,0 +1,46 @@
+we are handling Contextapi, so we r creating global variable ,we'll be passing all data in that global variable
+ but its react and state dont easily update  
+
+ *create foldername Context with usercontext.js file
+ #i put Context in .js because it’s logic file, it has nothing to do with UI component.
+ .jsx is reserved for UI files.
+ #curently we are creating user Context, there can be cartcontext , logincontext, authcontext and more
+ 
+ *in this js file import react then add method react.createContext() then store in variable
+*we will create Provider which will give access to components inside of this global variable
+*create usercontextprovider.jsx file in same folder,  why jsx ?  cause we'll add components in fregments which is react component
+*then imoport react and usercontext then create method and hold in variable
+
+#as we seen outlet ,there is same concept we'll use
+*now we'll add props in that method, name anything, i took (children), is same as div 
+*in return(),add fregments then wrap the {children} as it is it will render
+
+#in this children there can be any component e.g cardcomponent, dashboard. the reason we wrote children , write upcoming(future) components as it is
+*in those fragment pass usercontext as we imported before, then add .provide and also give value
+#we have wrap usercontext with provider but we dont know which value we are passing
+*now pass prop value={} and pass user and setuser, makw sure to create usestate
+
+#so in this props(value) u can give access of components as much as u want, as we did with user and setuser
+*now go in app.jsx in return () add usercontextprovider in fregments
+
+#u can also add provider in this file insted of adding in usercontextprovider
+#now if u add any component in this fregments it will have direct access of values
+
+*now create components folder also creating file login.jsx and profile.jsx
+*in login file import usestate and usecontext hook also import usercontext
+*create 2 input feild username and password and also button
+*add onclick on button and create method for onclick
+*we also gonna need state for username and password so create usestate
+
+#after creating state, the question is how this state value will be control in onclick 
+#we still havent done yet,so in input box add value from username and pass onchange, in that onchange pass callback and call setusername method call event listener
+#same with password, just make sure to call setpassword
+
+#the thing we wanted to learn is how we'll fetch value inside of usercontext by using usecontext
+#as we used usestate hool,same we;ll use usecontext
+*in that usecontext hook take object {setuser} which came from usercontextprovider
+#if i want data from profile i'll use user and i wanted add data then i'll use setuser whic came from usercontextprovider's variable
+*as we created function for button , add event and preventdefault to stop reloading page
+* and same in that callback pass username and password in setuser() as we fetch from usercontextprovider
+*same thing do with profile.jsx and return responce in div
+
