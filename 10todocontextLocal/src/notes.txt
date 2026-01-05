@@ -1,0 +1,17 @@
+* first create folder in that create file todocontext.js, 
+*in that file import usecontext and createcontext then createcontext hold in variable and directly export
+*same create customhook for usecontext hold in variable directly export
+*also create provider and hold in var and directly export 
+
+*whenever we create context, in this context we'll firstly  create array by naming (todo)
+*in this array we'll add properties in {id , todo message , completed}
+*after that we;ll add functionality after array
+1. addtodo :  we created this for adding todo's message
+2.updatedTodo : we created for updating todo's value , to update value we gonna need id and todo's value which we gonna change
+3.deletetod : for deleteing we only gonnna need id
+4.toggleComplete : css will do work, and id is requird to make changes
+
+#nomatter whats my compoent, ill always take value from this array which we created
+*create index.js file in contexts folder and import as nessesary things
+*in app.jsx add css from mdfile and also add todoprovider(to add functionality) as we created in todocontext.js 
+*add value in provide
