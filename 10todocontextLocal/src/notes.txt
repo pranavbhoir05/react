@@ -14,4 +14,22 @@
 #nomatter whats my compoent, ill always take value from this array which we created
 *create index.js file in contexts folder and import as nessesary things
 *in app.jsx add css from mdfile and also add todoprovider(to add functionality) as we created in todocontext.js 
-*add value in provide
+*add value in provide (simply distructure it) 
+*start creating function for each  method after that we are starting local storage functionality
+#whenever my application loads , there can be possibility of my todos
+#we;ll use useeffect to fetch value from local storage to insert in todos(in our usestate)
+*in useeffect we'll firstly use localStorage.getItem, but just cause all value in loacal starage contain in string format so we need to convert in json 
+#as long as we are in react(if we arnt in server side rendering) we can access localStorage in browoswer
+
+#its time to create compoents (TodoForm , TodoItem, and also import file index,js)
+*in todoform file creat usestate and then  we accessed addTodo function from useTodoContext which we created in todocontext file
+#we ll create methodfor adding todo in form file 
+#now add onsubmit in form and input need to do wiring(value and onchange)
+#now move to todo items , bring update,delete,toggleComplete from useTodoContext and also import
+#also add state variable (istododeditable) and whenever we change or edit we also gonna need one more state, so we create(todomsg)
+#time to add functionality when we edit items
+#also add functionality when toggleComplete which we have alrady wrote in app.jsx, so create functionality for toggle , make sure name diffrtent
+#just review the functionality which is alrady wrinten in (return)
+#now call compoents in app.jsx, so pass TodoForm in todoprovider and also TodoItems but
+when it coomes to item we need to add little functionality(we'll add loop on our todos whic came from context) in that loop we'll pass prop to TodoItems and we;ll also call
+#we;ll pass div in that div we'll pass id to improve performance

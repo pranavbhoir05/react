@@ -1,0 +1,9 @@
+JavaScript localStorage is a feature that allows web applications to store key-value pairs persistently in a user's browser, with no expiration date. The data remains available even after the browser is closed and reopened, but it is specific to the website's origin (domain, protocol, and port)
+
+The keys and the values stored with localStorage are in the UTF-16 string format. As with objects, integer keys are automatically converted to strings.
+so whenever needs we have to convert or deconvert in json format
+
+syntax : 
+
+localStorage.setItem("lastname", "Smith");
+localStorage.getItem("lastname");

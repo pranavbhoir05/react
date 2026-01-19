@@ -1,0 +1,15 @@
+e.preventDefault() stops the browser’s default action for an event.
+
+Examples:
+
+    Form submit → prevents page reload.
+
+    Link click → prevents navigation.
+
+    Button in form → prevents implicit submit.
+
+Purpose:
+
+    Keep control in JavaScript.
+
+    Handle logic manually without browser interference.
