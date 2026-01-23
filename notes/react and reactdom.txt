@@ -1,0 +1,16 @@
+React and ReactDOM are separate because they solve different problems.
+
+    React is the core library. It defines components, hooks, state, and the reconciliation algorithm. It is platform-agnostic. It does not know or care about the DOM.
+
+    ReactDOM is a renderer. It takes React’s virtual tree and applies it to the web DOM. It handles mounting, updates, and event delegation in the browser.
+
+Why separation exists:
+
+    Enables multiple render targets: web (ReactDOM), native (React Native), server (ReactDOMServer), custom renderers.
+
+    Keeps React’s core logic independent of any platform.
+
+    Improves maintainability and scalability of the ecosystem.
+
+One-line summary:
+React decides what should change. ReactDOM decides how those changes are applied to the browser DOM.
