@@ -70,3 +70,4 @@ So both together = perfect balance.
 
 ___________________________________________________________
 
+ridux is library to connect redux with react we use react-redux , 
