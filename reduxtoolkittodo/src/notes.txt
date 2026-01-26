@@ -1,0 +1,3 @@
+install 2 libraries:
+npm install @reduxjs/toolkit
+npm install react-redux

@@ -14,3 +14,8 @@ Why separation exists:
 
 One-line summary:
 React decides what should change. ReactDOM decides how those changes are applied to the browser DOM.
+
+
+
+also 
+
