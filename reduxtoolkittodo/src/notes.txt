@@ -1,3 +1,48 @@
-install 2 libraries:
+*install 2 libraries:
 npm install @reduxjs/toolkit
 npm install react-redux
+
+why 2 libraries are required :
+
+reduxjs/toolkit:
+    Builds and manages the Redux store.
+    Defines slices, reducers, actions, async logic.
+    Pure state management.
+    Framework-agnostic.
+
+react-redux:
+    Connects Redux to React.
+    Subscribes React components to the store.
+    Provides Provider, useSelector, useDispatch.
+    Triggers React re-renders.
+
+Separation of responsibility:
+    Redux Toolkit → state logic
+    React-Redux → UI binding
+
+Why both are required:
+    RTK alone cannot update React components.
+    React-Redux alone cannot create a Redux store.
+
+Minimal correct mental model:
+    Redux Toolkit creates the store. React-Redux makes React aware of it.
+
+ #############################################################################
+
+ what included (we gonna have to create): 
+configureStore()
+createSlice()
+createAsyncThunk()
+createReducer()
+createAction()
+createEntityAdapter()
+createSelector()
+_________________________________________________________________________________
+
+#first we'll create store(global variable) then
+#there is reducers,we wanna make anychanges in store,cause there are many stores in store(auth store,product store),reducers handles functionality 
+#useSelector(for selecting) and useDispatch(for dispatching) we gonna have to learn nnow
+#######################################################################################
+
+*create folder with app(as u like) and create new file store.js
+*import configureStore from '@reduxjs/toolkit' (which come from redux not from react-redux)

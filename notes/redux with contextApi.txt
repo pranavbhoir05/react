@@ -71,3 +71,34 @@ So both together = perfect balance.
 ___________________________________________________________
 
 ridux is library to connect redux with react we use react-redux , 
+
+___________________________________________________________
+# Short Notes: Global State & Prop Drilling
+
+Prop Drilling:
+Passing data through multiple component levels.
+Causes tight coupling and noisy code.
+
+Context API:
+Built into React.
+Purpose: avoid prop drilling.
+Shares values globally via Provider/Consumer.
+No rules for state updates.
+No built-in async or debugging.
+Best for: theme, auth user, language, config.
+
+Redux:
+External library: Redux.
+Purpose: manage global state with discipline.
+Central store = single source of truth.
+State changes only via actions → reducers.
+Supports async, middleware, devtools.
+Best for: complex, shared, business-critical state.
+
+Key Difference:
+Context = data delivery mechanism.
+Redux = state management architecture.
+
+Rule of Use:
+Avoid drilling only → Context API.
+Control and scale global state → Redux.
