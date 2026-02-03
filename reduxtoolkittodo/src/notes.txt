@@ -40,9 +40,10 @@ createSelector()
 _________________________________________________________________________________
 
 #first we'll create store(global variable) then
-#there is reducers,we wanna make anychanges in store,cause there are many stores in store(auth store,product store),reducers handles functionality 
+#there is reducers,we wanna make anychanges in store,cause there are many sub-stores in store(auth store,product store),reducers handles functionality 
 #useSelector(for selecting) and useDispatch(for dispatching) we gonna have to learn nnow
 #######################################################################################
 
 *create folder with app(as u like) and create new file store.js
 *import configureStore from '@reduxjs/toolkit' (which come from redux not from react-redux)
+*
