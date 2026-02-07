@@ -31,10 +31,10 @@ Minimal correct mental model:
 
  what included (we gonna have to create): 
 configureStore()
-createSlice()
-createAsyncThunk()
 createReducer()
 createAction()
+createSlice()
+createAsyncThunk()
 createEntityAdapter()
 createSelector()
 _________________________________________________________________________________
