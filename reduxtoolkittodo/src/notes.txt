@@ -46,4 +46,23 @@ ________________________________________________________________________________
 
 *create folder with app(as u like) and create new file store.js
 *import configureStore from '@reduxjs/toolkit' (which come from redux not from react-redux)
-*
+*then export store which take object inside
+#we call redusers as slices (its naming convention)
+*now create redusers, create folder as feathers also create sub folder name todo and craete file name todoslice
+*in that file imoport createslice, bow thionk about it we priviouly use ids in todo we use date.now ,but redux knowas this kinda things will happen so it have (nanoid) method which generate id
+* so also import nanoid
+#there is important thing in store which is initialstate,how store will look like in starting(if store is empty or if u want to add value)
+#Without initialState, Redux cannot initialize the store predictably.
+It is not optional design — it is structural necessity.
+*so craete inintial state. then create object cause we;ll put multiple things in it like authtocken any many
+#slice is bigger versin of reducer
+*now create slices
+#while creating slice property i game (name), its in reduxtoolkit, its syntax, 
+*add inintialstate after name , you can directly  define inintialstate here or u can write entire code of inintialstate here
+*now add reducer which main functionality,  property and functions come under redusers
+*now add addtodo and removetodo same as we remember usestate 
+*in addtodo we will get 2 things state and action ,  state will give access to all current value in inintialstate
+#somtimnes we want to remove , we gonna need ids,, so i also goona need those value, it will come from (action)
+*while adding todo we give nanoid instead date.now and for texting we aint gonna send same sting, we will use action.payload  (payload itself is object, anything can come under it)
+*export const {addTodo,removeTodo,updateTodo} = todoSlice.actions
+*we also gonna export reduser individualy , export default todoSlice.reducer
