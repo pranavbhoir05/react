@@ -65,4 +65,33 @@ It is not optional design — it is structural necessity.
 #somtimnes we want to remove , we gonna need ids,, so i also goona need those value, it will come from (action)
 *while adding todo we give nanoid instead date.now and for texting we aint gonna send same sting, we will use action.payload  (payload itself is object, anything can come under it)
 *export const {addTodo,removeTodo,updateTodo} = todoSlice.actions
-*we also gonna export reduser individualy , export default todoSlice.reducer
+*we also gonna export reduser individualy , export default todoSlice.reducer 
+
+*now imoport redusers in store
+*now add key value in that store which is reducer
+#currently we have only 1 reducer but you can give many as needs
+$now its time to learn useSelector and useDispatch and this are react components not redux, it just reacts wireup how our redux willbe use 
+*aftercreatig addtodo and todos in components, form will come under addTodo
+*now import useDispatch in addtodo now add syntax 
+*now create method for addtodohandler and also prevendefault to avoid autosubmit form
+*now use dispatch , dispatch uses reducers to add values in store
+#but the question is which method u wanna use,but there is no method here, thats why priviouly created todoslice where i have exported individual reducer(addtodo)
+*now call that reducer in dispatch() and name anything in that reducer(input or superman)
+*but we haavent clean input field so clean it by setinput('')
+#so we see once i uderstand how to create dispatch which is 1 min work,so ill call reducerinside of it, and can passany value in it
+
+#now our task is to list all todos
+#inintialstate is object but todos is array , we can loop it, but when looping how can we take those values, so that moment we have created store,thats why we created store but how to take from store, as we priviouly saw im (todoslice,js) all values get in state, so from where will we get value?  from store or state ?
+*go to todos.jsx and imoport useSelector
+#but im also gonna give delete then i am gonna take action and if i take any action im gonna need dispatch 
+*so import dispatch too and also import remove todo  
+
+#syntax is same as useDispatch ,but in useSelector is just method but advantage is we get access of state inside of callback
+*now write method for useSelector and inthat callback (state.todos) you can get values from store, in the endof the day its inintialstate
+#so now todos holding an array
+
+#now do functionality in return
+*dont foreget to add components in Provider in app.jsx or main.jsx
+*to wrap in provider import provider (from react-redux )
+* and we need to import store as we have already exported
+*now replace strictmode with provider and instead writing value name it as store
