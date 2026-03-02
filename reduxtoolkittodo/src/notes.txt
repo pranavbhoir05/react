@@ -95,3 +95,9 @@ $now its time to learn useSelector and useDispatch and this are react components
 *to wrap in provider import provider (from react-redux )
 * and we need to import store as we have already exported
 *now replace strictmode with provider and instead writing value name it as store
+
+#############################################################################################
+summery: 
+        create store (every app has only 1 store which we call single source of truth)
+        create reducer and add in store (we call reducer as slice u can call any)
+        and create components and then add in main,jsx after wrapping in provider
