@@ -1,0 +1,40 @@
+vid no 19 :
+
+*make sure to create .env outside of src
+*mkae sure to add .env on gitignore
+
+#how to access env file?
+to access there are duffrent ways to access file for react,backend,frontend everyone of them there are diffrent ways to access
+
+#if someone craetapp using createreactapp then its compulsary to start variable in env with  REACT_APP
+#doc : These environment variables will be defined for you on process.env. For example, having an environment variable named REACT_APP_NOT_SECRET_CODE will be exposed in your JS as process.env.REACT_APP_NOT_SECRET_CODE.
+
+*but we have create this app by using vite so it will be using vite: 
+To prevent accidentally leaking env variables to the client, only variables prefixed with VITE_ are exposed to your Vite-processed code. e.g. for the following env variables:
+VITE_SOME_KEY=123
+DB_PASSWORD=foobar
+
+Only VITE_SOME_KEY will be exposed as import.meta.env.VITE_SOME_KEY to your client source code, but DB_PASSWORD will not.
+console.log(import.meta.env.VITE_SOME_KEY) // "123"
+console.log(import.meta.env.DB_PASSWORD) // undefined
+
+*after appwrite url we gonna have to add morw things in (env)
+*VITE_APPWRITE_PROJECT_ID , 
+VITE_APPWRITE_DATABASE ,
+VITE_APPWRITE_COLLECTION_ID
+VITE_APPWRITE_BUCKET_ID
+
+*after that go to appwrite and crate new project and copy projectid and paste in env
+*also create database in appwrite and copy paste id in env
+*in created db creat table(collection) and copy paste to env
+*in that table create  collums for id ,content, featuredimage, status, userid and also in indexes create indeax and choose status and key
+*go to storage and create bucket and copy past id in env ,also make changes in permisssion
+
+#insted of writing (import.meta.env.VITE_APPWRITE_URL )all the time we;ll create separate folder and file to handle this env  (to make it shortcut)
+* so creat folder and file with name conf and in env and create separate method for each operation like things:
+ const conf = {
+    appwrite: String(import.meta.env.VITE_APPWRITE_URL),
+ }
+
+ ##########################################################################
+  video no 20 :
