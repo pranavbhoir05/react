@@ -37,4 +37,26 @@ VITE_APPWRITE_BUCKET_ID
  }
 
  ##########################################################################
-  video no 20 :
+  video no 20 :  Build authentication service with appwrite
+we gonna create services (class): but why? 
+   cause even if tommorow i want remove my authentication from appwrite, then still application should be manage to run, so we;ll create services
+   #read txt file i hvae created named: what is a services.txt
+   #it doesnt matter from which server we talk
+   #go through documentaion of appwrite, appwrite will, all things we dont need worry about encruption and all
+
+   *remember go through appwrite documentaion from creating clients to mails and all
+   *create folder name appwrite, cause all services will be related appwrite
+   *in that folder create file name auth.js
+   *as we gonna need databaseid, and all ids so import (conf) as we have created 
+   #we can also copypast code but we;ll be using class
+
+   *create class(authservice) and export it (as we have created class now anyone who use this class needs to creaete object)
+   #insted if we create object and directly export, and can be apply methods on that object
+   *just cause we use new keyword so we are also calling constructor
+
+   #The result: the application interacts with AuthService instead of interacting with Appwrite directly. This creates an abstraction layer, improves maintainability, reduces vendor dependency, and makes the system easier to modify or scale.
+
+
+   #############################################################################33
+   to create account: 
+         

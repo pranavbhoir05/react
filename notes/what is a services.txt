@@ -1,0 +1,45 @@
+What is a Service
+
+A service is a file that contains logic for communicating with external systems such as APIs, authentication providers, or databases.
+
+Components focus on UI, while services handle backend communication.
+
+#####################################################################
+
+2. Code Reusability
+
+Same API logic can be reused in multiple components.
+exm: todoService.getTodos()
+Instead of repeating fetch logic everywhere.
+
+###########################################################################
+
+3. Maintainability:
+
+If the API changes, only the service file needs modification, not every component.
+
+##################################################################
+
+4. Reduce Vendor Lock-in
+
+If components directly use vendor APIs like Appwrite or Firebase, changing the backend later becomes difficult.
+If backend changes, only the service implementation changes.
+
+###########################################################################
+
+Do Services Require Classes?
+No.
+
+Services can be written using:
+Functions
+or
+Classes
+
+Classes are sometimes used when multiple methods share the same configuration, such as an SDK client.
+
+###########################################################################3
+
+Short Interview Answer:
+
+Services are used to separate API or backend logic from React components.
+They improve code organization, reusability, maintainability, and help reduce vendor lock-in by isolating external service logic.
