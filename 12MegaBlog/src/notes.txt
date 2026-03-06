@@ -56,7 +56,14 @@ we gonna create services (class): but why?
 
    #The result: the application interacts with AuthService instead of interacting with Appwrite directly. This creates an abstraction layer, improves maintainability, reduces vendor dependency, and makes the system easier to modify or scale.
 
+in this video we create account, also creaete session,delete and getuser and all..
+   #############################################################################
 
-   #############################################################################33
-   to create account: 
+   video no 21 : Appwrite database, file upload and custom queries
+
+   *as we hvea created appwrite service(auth.js), same creat another service name(config.js)
+   *
+   *
+   *
+  
          

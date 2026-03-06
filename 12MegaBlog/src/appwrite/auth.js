@@ -2,18 +2,18 @@ import conf from '../conf.js'
 import { Client, Account, ID } from 'appwrite'
 
 export class AuthService {
-    Client = new Client()  // Create a new instance of the Appwrite
+    client = new Client()  // Create a new instance of the Appwrite
     account                //declare the Account service variable
 
      //constructor runs automatically when class object is created
     constructor(){         
         // configure the Appwrite client with endpoint and project id
-        this.Client
+        this.client
         .setEndpoint(conf.appwrite)
         .setProject(conf.appwriteProjectId)
 
         // initialize the Account service with the configured client
-        this.account = new Account(this.Client)
+        this.account = new Account(this.client)
     }
 
     async createAccount({email, password, name}) {
