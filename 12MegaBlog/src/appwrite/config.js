@@ -78,14 +78,59 @@ export class Service{
                 return false
             }
             }   
-              
+               
             //to get all posts
-            async getAllPosts(){
-             
+            //i want to get all posts with active status only
+            async getAllPosts(queries = [Query.equal('status','active')]){    //status is key in the database(appwrite) and active is the value we want to filter by
+             try {
+                return await this.databases.listDocuments(
+                     conf.appwriteDatabaseId,
+                     conf.appwriteCollectionId,
+                      queries,
+                    )
+             } catch (error) {
+                console.log("appwrite service :: getAllPosts :: error", error);
+                return false
+             }
+            } 
+            
+            //file upload service
+            async uploadFile(file){
+                try {
+                    returnawait this.bucket.createFile(
+                        conf.appwriteBucketId,
+                        ID.unique(),
+                        file
+                    )
+                } catch (error) {
+                    console.log("appwrite service :: uploadFile :: error", error);
+                    return false
+                }
             }
-                
+
+            //file delete service
+            async deleteFile(fileId){
+                try {
+                    await this.bucket.deleteFile(
+                        conf.appwriteBucketId,
+                        fileId
+                        return true
+                    )
+                } catch (error) {
+                    console.log("appwrite service :: deleteFile :: error", error);
+                    return false
+                }
+            }
+
+            //file preview service
+            async getFilePreview(fileId){
+                return this.bucket.getFilePreview(
+                    conf.appwriteBucketId,
+                    fileId
+                )
+            }
         }   
 
 const service = new Service()
 
-export default service
+export default service 

@@ -65,5 +65,7 @@ in this video we create account, also creaete session,delete and getuser and all
    *
    *
    *
-  
-         
+  ####################################################################################
+   vid no 22:   configure redux toolkit in big projects    
+
+     
