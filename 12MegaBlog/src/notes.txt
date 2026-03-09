@@ -68,4 +68,25 @@ in this video we create account, also creaete session,delete and getuser and all
   ####################################################################################
    vid no 22:   configure redux toolkit in big projects    
 
-     
+     *create store (folder and file) then create folder for reducers
+     *then configure reduser and export
+     *then creaete components for header and footer and also create separate index file and import both file in it and export
+     *go in app.jsx cause most the work is gonna be handling this file
+     #cause whenever the app loads ,we gonna have to see user is loded in or not, and this whole thing we'll see in this state
+     #if user is loged in then we'll show few things , if not then we'll give em outlet that we'll not show anypost to them 
+     # we create state cause when we fetch data, there can be some chances of delay in network request,so wheneverwe wants to request from (database or network) we create loading state
+     #creating loading state is always good practice, so we can perform conditionly render by if and else, if loading is true, we'll show loading icon if not then will show data
+
+   * *create state (loading) then also create dispatch
+      *now i need service(auth) now import authservice
+      *now whenever this app loads, then take useeffect and ask that (searvice) its login ot not
+      *use useeffectand call authservice and getcurrentuser,ifm current user found .then
+      *in that .then we get callback, put any variable in parameter and call dispatch method and dispatch (login) from authslice 
+      #when login ,user status will changes itself but userdata needs to be dispatch
+      *so before dispatching userdata,add if statement if user dont exist
+      #Key rule: dispatch(login(value)) → value becomes action.payload inside the reducer.
+      *but the loading is still true ,if all the checking is done then call finally and call setloading false
+      *now return in condional rendering, directly add if statement if (!loading), then pass header and footer components
+      *we'wont add outlet yet, cause didnt created
+      *setup (provider) in main.jsx, import provider and store.js in main.jsx
+      *and wrap app in provider

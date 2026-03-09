@@ -1,0 +1,22 @@
+Without <main>:
+
+<header></header>
+<div>content</div>
+<footer></footer>
+Browser cannot clearly identify where the primary content begins.
+
+
+
+With <main>:
+
+<header></header>
+<main>content</main>
+<footer></footer>
+
+Systems can:
+
+skip navigation directly to main content (accessibility)
+understand page hierarchy (SEO)
+maintain consistent layout structure in frameworks like React.
+
+Core function: semantic identification of the page’s primary content region.

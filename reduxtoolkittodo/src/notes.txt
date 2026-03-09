@@ -101,3 +101,12 @@ summery:
         create store (every app has only 1 store which we call single source of truth)
         create reducer and add in store (we call reducer as slice u can call any)
         and create components and then add in main,jsx after wrapping in provider
+
+        remember:
+         default export → name can change
+        named export → name must match
+
+Rule:
+
+Import name can be anything
+Only one default export per file
