@@ -90,3 +90,5 @@ in this video we create account, also creaete session,delete and getuser and all
       *we'wont add outlet yet, cause didnt created
       *setup (provider) in main.jsx, import provider and store.js in main.jsx
       *and wrap app in provider
+      *also creat pages folder in src 
+      #
