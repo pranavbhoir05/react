@@ -91,4 +91,10 @@ in this video we create account, also creaete session,delete and getuser and all
       *setup (provider) in main.jsx, import provider and store.js in main.jsx
       *and wrap app in provider
       *also creat pages folder in src 
-      #
+      
+############################################################################3
+vid 23:  Production grade react components 
+
+* created container folder and file in components
+*container is just box ,we define styling properties (height,width) in container
+*add classes in container,but which classes , i want width full, so what the benefits now is (if i want width 80% in all components, then what ill do is,i ll shift the container and the work is done)
