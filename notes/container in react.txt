@@ -1,0 +1,58 @@
+Container is used to control page width and center content.
+
+Without it, elements stretch across the entire screen.
+
+Example without container:
+    <header className="bg-gray-500">
+  <nav className="flex">
+    Logo                Menu
+  </nav>
+</header>
+
+On a large monitor: 
+Logo                                               Menu
+Content spreads edge-to-edge.
+
+##################################################################
+
+With container:
+        <header className="bg-gray-500">
+  <Container>
+    <nav className="flex">
+      Logo        Menu
+    </nav>
+  </Container>
+</header>
+
+Layout:
+        SCREEN WIDTH
+|------------------------------------------------------|
+
+        CONTAINER AREA
+        |------------------------------------|
+        Logo                          Menu
+        |------------------------------------|
+
+|------------------------------------------------------|
+
+The container limits width and centers the content.
+
+###############################################################
+
+Typical container implementation:
+ function Container({ children }) {
+  return (
+    <div className="max-w-7xl mx-auto px-4">
+      {children}
+    </div>
+  )
+}
+
+max-w-7xl → page width limit
+mx-auto   → center horizontally
+px-4      → side padding
+
+Reason it is used:
+1. Prevent content from stretching on large screens
+2. Keep layout readable
+3. Maintain consistent spacing across pages

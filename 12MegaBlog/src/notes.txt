@@ -98,3 +98,98 @@ vid 23:  Production grade react components
 * created container folder and file in components
 *container is just box ,we define styling properties (height,width) in container
 *add classes in container,but which classes , i want width full, so what the benefits now is (if i want width 80% in all components, then what ill do is,i ll shift the container and the work is done)
+*now go to footer and add css from git, and import link from router aslo create logo.jsx in components folder and import in footer
+
+#go to header(header is optional,we dont wanna show all value at once,and who do we waNT to show login logout we gonna have to judge it, on the besis of its login or logout )
+
+*create file in header name logoutbtn.jsx,but during logout we gonna take (action, we gonnna have to dispatch), so to logout we gonna have to bring slice from store too
+*import dispatch and also import authService(cause our logout is in it)
+*we also gonna have bring individual service of logout, so import it from features
+*in logoutbtn add dispatch method
+
+#just cause its gonna be btn then create logout handler in it
+*create method for btnhandler then call logout() from authservice, and just cause if u see in appwrite in auth, logout is promice, so wheneverwe logout we get promice
+*call the logout method from the authService to log the user out and then dispatch the logout action to update the Redux state
+*create btn in return
+
+#we'll add all the links in header,we'll conditionally render if we wanna show logout or not (we'll check user is logged in or not)
+*in handler import container if u want, first import (container,LogoutBtn,logo in index.js)
+*now in header import Container,Logo,LogoutBtn from index file and also useNavigate,useSelector,Link
+
+*we gonna have to check if its authented or not , creaet state fore this
+ *create navigation same as create usedispatch
+*navItems is an array of objects that stores navigation data. create navitems,advantage:Store menu information in one place instead of writing many <li> elements.
+# Data (navItems array)
+        ↓
+Loop (map)
+        ↓
+UI generated automatically
+
+#now create objects and active will depends on authstatus, and we'll disppley all active things by applying consitional rendering ,if user is login then why to show him login and signin button
+*in header add <header> in that add container, now all the navigation bar are in container
+#in this container we;ll take nav component and will add logo then will loop to ui
+
+*take nav first add div in it(will add logo in this div), also add link tag and inside of it add Logo(which we already created )
+*in nav take another div for ul and few css flex and ml-auto
+
+*now start javascript apply map()on navItems and check if item are active , if yes then add li
+*if things are getting repeated then add (key) in li
+*now we need button(all navigation will happen in this button) name will be same as key item.name
+*when applying onclick on button , callback with navigate which we have created and pass (item.path) as u named it, and makesure to add class
+* If user is authenticated,then show Logout button
+##############################################
+
+*now Create one reusable button component used across the application.
+#Benefits: 1. Reusability
+   Same button used across pages (login, submit, nav, etc.).
+
+2. Consistent styling
+   All buttons share identical design.
+
+3. Easier maintenance
+   Change style once → updates everywhere.
+
+4. Cleaner components
+   Removes repeated Tailwind classes.
+
+5. Extensibility
+   Props can control color, size, or behavior.
+
+Definition:
+A common Button component is a reusable UI component created once and used in multiple places to maintain consistent styling and reduce repeated code.
+
+#########################################################################33
+*create button.jsx in component folder
+*as parameter pass{children and add as u wants to change} we also add classname empty cause by doing this we can modify and extendable classes
+*create button in button and pass {children} (nameany, most people call this children, so never mind)
+*also pass ...props //by adding ...props now we can pass any additional props to the button element when we use the Button component, such as onClick handlers, disabled state, etc. This makes the Button component more flexible and reusable in different contexts throughout our application.
+
+##########################################3
+#same syntax we;ll be repeating in input button, there is also new hook call forwardref()
+#i have created notes on this intxt
+*create input.jsx ion component,rfce then also import useid also store id in variable
+*as we did in button we gonna add parameter in{}, but this time hold function in forwardref and hold in variable
+*give all input element in parameter (lebal, classname,type,...prps) but we'll also pass ref(reference) 
+
+#ref is a reference that allows a parent component to directly access and control a DOM element inside a child component.
+flow : 
+Parent component
+     ↓
+useRef() creates ref
+     ↓
+ref passed to Input component
+     ↓
+forwardRef allows Input to receive it
+     ↓
+ref attached to <input>
+
+#################################
+LoginForm → Parent
+Input     → Child
+
+########################################################################################
+
+*in return, start your javascript and check if leble is present and add lebel ,htmnlfor and classname
+*for input add type to type, as we;have created in parameter and also provide classname , ...props ,ref and id
+#i have created file name ref.txt in notes just read it 
+#now unique id attach to input element and label element, so they are properly associated

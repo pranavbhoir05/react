@@ -1,0 +1,65 @@
+
+Parent cannot control the input.
+
+Why forwardRef is needed:
+React blocks ref from entering function components.
+forwardRef allows the ref to reach the DOM element.
+
+Conclusion:
+Without forwardRef → parent cannot access input DOM
+With forwardRef    → parent can control the input element
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+What is forwardRef?
+forwardRef lets your component pass a reference to one of its children. It's like giving a direct reference to a DOM element inside your component.
+
+#########################################################################################3
+
+diff bet useref() and forwardref():
+
+useRef      → Hook (creates ref)
+forwardRef  → Function/API (passes ref to child)
+
+##############################################################
+
+useRef — Definition
+A React Hook used to create a mutable reference that persists across renders and can access DOM elements.
+
+
+forwardRef — Definition
+A React function that allows a parent component to pass a ref to a child component so the parent can access the child’s DOM element.
+
+###########################################################3
+
+Why forwardRef exists
+React blocks ref from passing into normal function components.
+
+################################################################,
+
+
+You did not import useRef because your component is not creating the ref. It is receiving the ref from another component.
+
+Your code:
+const Input = React.forwardRef(function Input(props, ref) {
+
+Here:ref is coming from the parent component
+So this component only accepts the ref and passes it to the input.
+
+_____________________
+
+Where useRef exists
+In the parent component.
+
+
+Example:  
+  import { useRef } from "react"
+import Input from "./Input"
+
+function Form() {
+  const inputRef = useRef()
+  return <Input ref={inputRef} />
+}
+
+Form component → creates ref
+Input component → receives ref using forwardRef

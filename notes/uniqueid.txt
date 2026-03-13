@@ -1,0 +1,19 @@
+| Method       | Purpose          | Uniqueness           | Typical Use                 |
+| ------------ | ---------------- | -------------------- | --------------------------- |
+| `Date.now()` | timestamp ID     | weak                 | quick temporary IDs         |
+| `nanoid`     | random unique ID | very strong          | database / posts / objects  |
+| `useId`      | React DOM ID     | stable per component | form labels / accessibility |
+
+
+Date.now() → quick local id
+nanoid()   → production unique id
+useId()    → DOM linking inside React
+
+
+Inputs / forms → useId
+Database / object IDs → nanoid
+
+
+why use useid in input forms?
+:Reason for using useId in input forms
+useId creates a unique and stable ID to connect form elements.
