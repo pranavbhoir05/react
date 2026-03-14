@@ -11,10 +11,13 @@ function Select({
   return (
 
     <div className='w-full'>
+
         {label && <label 
         htmlFor={id}
         className={`${className}`}
-        ></label>}
+        >
+            {label}
+            </label>}
         <select 
         { ...props} 
         id={id}
@@ -25,8 +28,12 @@ function Select({
         ${className}`}
         >
            {options?.map((option) => (
-            <option key={option} value={option}>
-                {option}
+            <option 
+            //key :helps React identify each element uniquely when rendering lists.
+            //value :defines what data the <select> returns when chosen.
+            key={option}
+            value={option}>    
+             {option}
             </option>
            ))} 
 
