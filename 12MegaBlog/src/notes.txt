@@ -193,3 +193,11 @@ Input     → Child
 *for input add type to type, as we;have created in parameter and also provide classname , ...props ,ref and id
 #i have created file name ref.txt in notes just read it 
 #now unique id attach to input element and label element, so they are properly associated
+
+###########################################################################################3
+
+vid : 24 How to use React hook form in production
+
+$as we know we have (dropdown button)select button in my projecet ,which will show active and inactive status,so 
+*create new file select.jsx in component,the crate function
+#for selecting active deactive we need options , then give para options
