@@ -1,0 +1,45 @@
+<link> in HTML:
+Purpose → connect external resources to the HTML document
+Location → inside <head>
+Not clickable
+
+Example:  <link rel="stylesheet" href="styles.css">
+
+
+Used fo:
+CSS files
+fonts
+favicons
+resource loading
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+<Link> in React Router:
+
+Purpose → navigate between routes inside a React application
+Location → inside JSX
+Clickable navigation
+
+
+Example:
+<Link to="/about">About</Link>
+
+Used for:  
+  client-side routing
+switching components
+no page reload
+
+
+Key Difference: 
+ <link>  → loads external resources
+<Link>  → navigates inside a React SPA
+
+##############################################################3
+Link component from the react-router-dom library, not a standard 
+HTML <link> tag or <a> tag. The HTML <link> tag is for connecting external 
+resources like stylesheets, while the Link component is for client-side routing. 
+
+Using the Link Component for Navigation:
+The Link component prevents the default browser behavior of a full page reload
+ when navigating to a different internal route. This provides a faster, 
+ more seamless user experience typical of Single Page Applications (SPAs).
