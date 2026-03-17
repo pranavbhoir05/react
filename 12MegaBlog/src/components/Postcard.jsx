@@ -6,42 +6,43 @@ import {Link} from "react-router-dom"
 // Appwrite system fields start with "$" to indicate metadata
 
 function Postcard({
-  $id,           // unique post ID used for routing
-  title,         // post title displayed on card
-  featuredImage, // image file ID stored in Appwrite
+  $id,           
+  title,         
+  featuredImage, 
 }) {
 
-  // Link navigates to the full post page using the post ID
-  // Example route: /post/6548732
+  return(
+
+    // Link navigates to the full post page using the specific post ID
+    // Example route: /post/6548732
   <Link to={`/post/${$id}`}>
 
-  // Card container styling
-  // w-full      → full width
-  // bg-gray-100 → light background
-  // rounded-xl  → rounded corners
-  // p-4         → padding inside card
+    // Card container styling
   <div className='w-full bg-gray-100 rounded-xl p-4'>
 
-    // Image wrapper
-    // mb-4 → space below image
+      // Image wrapper
     <div className='w-full justify-center mb-4'>
 
-      // Image preview fetched from Appwrite storage
-      // featuredImage → file ID
+     // Image preview fetched from Appwrite storage(bucket)
+    // featuredImage → file ID
       <img
         src={appwriteService.getFilePreview(featuredImage)}
         alt={title}
-        className='rounded-xl' // rounded image corners
+        className='rounded-xl' 
       />
 
     </div>
-
+    
     // Post title styling
-    // text-xl  → larger text
-    // font-bold → bold title
     <h2 className='text-xl font-bold'>
       {title}
     </h2>
 
   </div>
+  </Link>
+  )
 }
+
+export default Postcard
+
+

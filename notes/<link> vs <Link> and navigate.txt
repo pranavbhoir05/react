@@ -43,3 +43,15 @@ Using the Link Component for Navigation:
 The Link component prevents the default browser behavior of a full page reload
  when navigating to a different internal route. This provides a faster, 
  more seamless user experience typical of Single Page Applications (SPAs).
+
+
+####################################################
+
+
+    Link → UI element. User clicks    → navigation happens.
+    useNavigate → function. Code runs → navigation happens.
+
+Rule
+
+    Static UI → Link
+    Logic / conditions → useNavigate

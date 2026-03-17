@@ -65,7 +65,9 @@ export class Service{
             }
             }
 
-            //to get single post by id
+            //to get single post by id , → fetch post data, 
+            // getPost() does not return the image itself.
+            // It returns post data, and the image field is only a file ID.
             async getPost(postId){
                 try {
                     return await this.databases.getDocument(
@@ -122,7 +124,9 @@ export class Service{
                 }
             }
 
-            //file preview service
+            //file preview service 
+            //Why getFilePreview() is needed
+            // Storage converts the file ID into a real image URL.
             async getFilePreview(fileId){
                 return this.bucket.getFilePreview(
                     conf.appwriteBucketId,
