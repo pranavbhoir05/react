@@ -266,4 +266,22 @@ react hook form
 *now add button as we created and add type and classname
 
 #now create same form for sign up
-*create signup.jsx in component
+*create signup.jsx in component and follow all steps as login.
+
+_________________________________________________________
+#we gonna create authlayout which will Protect routes based on authentication.
+#User hits route
+     ↓
+AuthLayout checks authStatus
+     ↓
+Allowed → render children
+Blocked → redirect
+
+*create Authlayout.jsx in components,this will be our protected container   
+#we'll conditionally render if render to that children or not
+*pass props {children and authentication} and authentication true 
+
+
+
+
+#realtime editor is yet to create
