@@ -270,6 +270,7 @@ react hook form
 
 _________________________________________________________
 #we gonna create authlayout which will Protect routes based on authentication.
+*Purpose of the entire Protected code is To control who can view a page based on login status.
 #User hits route
      ↓
 AuthLayout checks authStatus
@@ -279,9 +280,12 @@ Blocked → redirect
 
 *create Authlayout.jsx in components,this will be our protected container   
 #we'll conditionally render if render to that children or not
-*pass props {children and authentication} and authentication true 
-
-
+*pass props {children and authentication} and authentication true ,we have give truw, but someone mayhave given false, so on that bases we;ll check value and update
+*for clear understanding i have created text file name:
+(protected.2.txt)
 
 
 #realtime editor is yet to create
+
+###########################################################################################
+
