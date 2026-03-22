@@ -1,0 +1,176 @@
+import React,{useEffect , useState} from 'react'
+import { useSelector } from 'react-redux'   
+import { useNavigate } from 'react-router-dom'
+
+export default function Protected({ children, authetication = true }) {
+  const navigate = useNavigate()
+  const [loader, setLoader] = useState(true)
+  const authStatus = useSelector(state => state.auth.status)
+
+  useEffect(() => {
+    if (authetication && authStatus !== authetication) {
+      navigate('/login')
+    } else if (!authetication && authStatus !== authetication) {
+      navigate('/')
+    }
+    setLoader(false)
+  }, [authStatus, navigate, authetication])
+}
+
+
+Full meaning
+1. Protected is a wrapper component
+
+Used like:  
+   <Protected authetication={true}>
+   <AddPost />
+  </Protected>
+
+  or
+
+ <Protected authetication={false}>
+  <Login />
+</Protected> 
+
+_____________________________________________________________
+
+2. children
+
+{ children, authetication = true }
+children = page/component inside Protected.
+
+Example:     
+<Protected>
+  <Dashboard />
+</Protected>
+
+Then:   children = <Dashboard />
+_____________________________________________________________
+
+4. useNavigate()
+const navigate = useNavigate()
+
+Used to redirect user to another route.
+
+navigate('/login') → move to login page
+navigate('/')      → move to home page
+_____________________________________________________________
+
+5. loader
+const [loader, setLoader] = useState(true)
+Starts with loading state.
+
+Reason: Do not show page immediately before auth check finishes
+_____________________________________________________________
+
+6. useSelector
+const authStatus = useSelector(state => state.auth.status)
+
+Reads login status from Redux store.
+
+authStatus = true  → user logged in
+authStatus = false → user not logged in
+_____________________________________________________________
+
+7. useEffect
+useEffect(() => {
+
+Runs after render and whenever:
+[authStatus, navigate, authetication]
+changes.
+
+So if login state changes, protection logic runs again.
+###################################################################
+
+Main logic
+First condition:
+
+if (authetication && authStatus !== authetication) {
+  navigate('/login')
+}
+
+Meaning: 
+ If page needs login
+and user does not match that rule
+→ send user to login page
+_____________________________________________________________
+
+Case A 
+authetication = true
+authStatus = true
+
+Evaluation:   
+if (true && true !== true)
+if (true && false)
+if (false)
+
+Result:    navigate('/login') does not run
+            user stays on page
+_____________________________________________________________
+
+Case B
+authetication = true
+authStatus = false
+
+Evaluation:
+if (true && false !== true)
+if (true && true)
+if (true)
+
+Result:       navigate('/login') runs
+              user is redirected to login
+###################################################################
+Second condition
+
+else if (!authetication && authStatus !== authetication) {
+  navigate('/')
+}
+            
+Meaning:     
+If page should only be seen by logged-out users
+and user does not match that rule
+→ send user to home page       
+
+Case C
+authetication = false
+authStatus = false
+
+Evaluation:
+if (!false && false !== false)
+if (true && false)
+if (false)
+
+Result:      navigate('/') runs
+             user is redirected to home
+_____________________________________________________________
+
+8. setLoader(false)  :setLoader(false)
+After check is complete, loading ends.
+
+Without it:
+loader stays true forever
+page never renders
+_____________________________________________________________
+
+9. Missing return
+Your shown code is incomplete. It should return something like:
+
+return loader ? <h1>Loading...</h1> : <>{children}</>
+Meaning:
+loader = true  → show Loading...
+loader = false → render children
+
+###################################################################
+Final behavior table:
+
+authetication=true,  authStatus=true  → allow page
+authetication=true,  authStatus=false → redirect to /login
+
+authetication=false, authStatus=false → allow page
+authetication=false, authStatus=true  → redirect to /
+###################################################################
+
+One-line conclusion: 
+
+This component is written to check login state and either render the page or redirect the user to the correct route.
+

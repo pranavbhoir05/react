@@ -1,0 +1,27 @@
+Purpose of the entire Protected code
+
+To control who can view a page based on login status.
+
+What it does: 
+
+1. Reads user login state from Redux
+2. Checks whether the page needs login or logout
+3. Redirects blocked users
+4. Renders page only for allowed users
+
+Why needed
+
+Without this code:
+
+1. Logged-out users could open protected pages like Add Post
+2. Logged-in users could still open Login / Signup pages
+3. Route protection logic would be repeated in every page
+
+
+What this component becomes
+Protected = access checker / route guard
+
+
+In one line
+
+It is written to protect pages and redirect users based on authentication state.

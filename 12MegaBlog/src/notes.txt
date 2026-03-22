@@ -288,4 +288,4 @@ Blocked → redirect
 #realtime editor is yet to create
 
 ###########################################################################################
-
+vid no 25:  Adding form and slug values
