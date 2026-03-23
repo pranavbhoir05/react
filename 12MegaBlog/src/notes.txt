@@ -289,3 +289,5 @@ Blocked → redirect
 
 ###########################################################################################
 vid no 25:  Adding form and slug values
+
+*about rte i have save chatgpt responce  in txt notes file

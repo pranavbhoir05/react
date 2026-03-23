@@ -1,0 +1,33 @@
+*still iam black what we gonna do and why,as i know
+ we have already created form then why again?
+______________________________________________________
+
+
+You already created a form, but that form only works with simple inputs.
+
+Input, Select → normal HTML inputs → easy for form
+RTE           → custom component → NOT a real input
+______________________________________________________
+
+What you must do
+
+You must connect RTE to the form manually.
+______________________________________________________
+
+Why again (important):
+You are NOT creating another form.
+You are fixing how RTE talks to your existing form.
+______________________________________________________
+
+for more info follow this url: 
+https://chatgpt.com/share/69c024bd-cd10-8004-ae1d-0357db10a41f
+
+
+
+
+
+Final clarity:
+
+You are not making a new form
+You are making RTE behave like an input
+so the existing form can use it
