@@ -288,6 +288,59 @@ Blocked → redirect
 #realtime editor is yet to create
 
 ###########################################################################################
-vid no 25:  Adding form and slug values
+vid no 25: (RTE) Adding form and slug values
 
 *about rte i have save chatgpt responce  in txt notes file
+#i want to connect rte to form, i can do this by using forwardRef but there is another method by using react hook form
+#same form will be using post submit and edit
+
+create new rte file in component
+*we need 2 things , install tinymce and import editor from tinymce
+
+*just cause editor is being creatred as separate component, so we gonna have to give reference to form , so we'll use controller which come from reacthook-form,u can do same thing by unsing forwardRef.
+#also read documentaion of react-hook-form
+
+Who controls whom:
+#PostForm → main controller (form manager)
+ RTE      → controlled input
+ _____________________________________________________
+Flow:
+
+ PostForm (parent)
+   |
+   | passes control
+   ↓
+RTE (child)
+   |
+   | Controller uses control
+   ↓
+Editor (TinyMCE)
+_____________________________________________________
+
+Data flow:
+User types in editor
+      ↓
+Editor → field.onChange
+      ↓
+React Hook Form updates state (in PostForm)
+      ↓
+Form now has latest content
+_____________________________________________________
+
+Key concept: 
+Parent (PostForm) controls form state
+Child (RTE) sends data to parent via Controller
+
+*import Editor from '@tinymce and import Controller from 'react-hook-form'
+*now in  props add ({name, control, label,defaultValue =''})
+#Props meaning:
+name : key in form data
+control:object from useForm() and manages state, validation, updates
+label: UI only
+defaultValue: initial editor content
+
+*now creat div ,gave class name and add label if provided
+*now add selfclosing controller, and values in it: name, control and render
+#go through document syntax
+*in that render add any element you wants to render
+*im addind Editor in this we get initialvalue and init, 

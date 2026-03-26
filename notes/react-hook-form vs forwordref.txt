@@ -1,0 +1,63 @@
+*i am asking why use react form insted usforwordref
+
+Why use React Hook Form instead of forwardRef
+
+Core difference:
+forwardRef → gives access to DOM element
+React Hook Form → manages form state + validation + submission
+
+
+
+What forwardRef does
+1. Access input DOM
+2. focus()
+3. read value manually
+
+You must handle everything yourself:
+state
+validation
+errors
+form submission
+
+
+
+What React Hook Form does
+1. Tracks all field values
+2. Handles validation
+3. Handles submission
+4. Optimized performance (less re-renders)
+
+
+
+
+In your case (RTE)
+RTE is custom component
+
+Using forwardRef
+You must manually:
+- read editor content
+- store it in state
+- validate it
+- include in submit
+
+
+
+Using Controller (React Hook Form)
+Controller automatically:
+- connects RTE to form
+- stores value
+- updates on change
+- includes in submit data
+
+
+
+Mental model
+forwardRef → low-level DOM access
+React Hook Form → full form management system
+
+
+
+Conclusion
+forwardRef alone is not enough for forms
+React Hook Form is used because it manages entire form logic,
+Controller is used to connect custom components like RTE
