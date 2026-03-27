@@ -9,6 +9,10 @@ chatgpt :
  jitna part pehle se bana hai use memory se lo,
  fir sirf zarurat ke hisab se update karo."
 
+also:
+*Memoizing a function means caching the result of a function 
+so that it does not need to be recalculated.
+
 What React really does
 
 useCallback(fn, deps)

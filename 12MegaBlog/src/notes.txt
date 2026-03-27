@@ -344,3 +344,19 @@ defaultValue: initial editor content
 #go through document syntax
 *in that render add any element you wants to render
 *im addind Editor in this we get initialvalue and init, 
+_____________________________________________________
+mar 27 2026:
+#time to create post-form
+
+*first import essential things,
+*add useform then
+*as we previouly saw in useform gave 2 things,register and handleSubmit
+*but it also give (watch)which give us watching capability,(if u want to monitor things continuosly)
+*setvalue to set values, insted of using (value), cause we are using react's form
+*control : if u wants the control of form we use it, same things we gonna pass in our RTE
+*getvalues: to grab any value in form ,we can take by using it
+*in useform u can also pass object and u can give default values
+
+#if user have submitted form then he may have PASS data,as we've seen reacthookform ,we get data in object,which we get when we register
+#first we'll create submit method but their are 2 cases:
+#if post value is already present then update, if not then create new entry
