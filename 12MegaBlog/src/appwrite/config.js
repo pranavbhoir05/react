@@ -18,15 +18,16 @@ export class Service{
                 return await this.databases.createDocument(
                     conf.appwriteDatabaseId, 
                     conf.appwriteCollectionId, 
-                    ID.unique()),
+                    ID.unique(),
                     {
                         title,
                         slug,
                         content,
                         image,
                         status,
-                        userId,
+                        userId, 
                     }
+                )
             } catch (error) {
                 throw error
             }
@@ -76,7 +77,7 @@ export class Service{
                         postId
                     )
                 } catch (error) {
-                console.log("appwrite service :: deletepost :: error",error);
+                console.log("appwrite service :: getpost :: error",error);
                 return false
             }
             }   
@@ -99,7 +100,7 @@ export class Service{
             //file upload service
             async uploadFile(file){
                 try {
-                    returnawait this.bucket.createFile(
+                    return await this.bucket.createFile(
                         conf.appwriteBucketId,
                         ID.unique(),
                         file
@@ -116,8 +117,8 @@ export class Service{
                     await this.bucket.deleteFile(
                         conf.appwriteBucketId,
                         fileId
-                        return true
                     )
+                    return true
                 } catch (error) {
                     console.log("appwrite service :: deleteFile :: error", error);
                     return false
