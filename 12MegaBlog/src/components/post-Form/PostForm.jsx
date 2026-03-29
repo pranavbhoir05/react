@@ -19,6 +19,17 @@ function PostForm(post) {
         const navigate = useNavigate()
         const userData = useSelector((state) => state.user.
         userData)
+
+    const submit = async (data) =>{
+        if(post){
+            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+           if(file){
+            appwriteService.deleteFile(post.featuredImage) //deleting the old image, if new img is uploaded
+                } 
+        }
+        appwriteService.up
+    }
+
   return (
     <div>PostForm</div>
   )

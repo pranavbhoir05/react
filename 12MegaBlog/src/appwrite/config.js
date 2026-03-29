@@ -18,7 +18,7 @@ export class Service{
                 return await this.databases.createDocument(
                     conf.appwriteDatabaseId, 
                     conf.appwriteCollectionId, 
-                    ID.unique(),
+                    ID.unique(),  // generating unique id for each post
                     {
                         title,
                         slug,
@@ -33,15 +33,14 @@ export class Service{
             }
            }
 
-           async updatePost(postId, {title,slug,content,image,status }){
+           async updatePost(slug,{title,content,image,status }){  //slug fpr unique identification of the post to be updated, and the second para is an obj containing the updated data
             try {
                return await this.databases.updateDocument(
                     conf.appwriteDatabaseId,
                     conf.appwriteCollectionId,
-                    postId,
+                    slug,  //using slug as the document id
                     {
                         title,
-                        slug,
                         content,
                         image,
                         status,
