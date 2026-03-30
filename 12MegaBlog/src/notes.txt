@@ -360,3 +360,5 @@ mar 27 2026:
 #if user have submitted form then he may have PASS data,as we've seen reacthookform ,we get data in object,which we get when we register
 #first we'll create submit method but their are 2 cases:
 #if post value is already present then update, if not then create new entry
+#then also add delete method if file is uploaded, in if condition
+#

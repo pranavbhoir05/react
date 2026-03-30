@@ -26,8 +26,29 @@ function PostForm(post) {
            if(file){
             appwriteService.deleteFile(post.featuredImage) //deleting the old image, if new img is uploaded
                 } 
+        
+        const dbPost = await appwriteService.updatePost(
+            post.$id,{  //Document ID (from Appwrite) , Tells which post to update
+                ...data,  //Spreads form data: title,slug and all
+                featuredImage: file ? file.$id : undefined
+                
+            })
+            if(dbPost){
+                navigate(`/post/${dbPost.$id}`)
+            }
+        }else{ //hold
+              const file = await appwriteService.uploadFile(data.image[0]);
+
+            if (file) {
+                const fileId = file.$id;
+                data.featuredImage = fileId;
+                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+
+                if (dbPost) {
+                    navigate(`/post/${dbPost.$id}`);
+                }
+            }
         }
-        appwriteService.up
     }
 
   return (

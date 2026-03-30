@@ -13,7 +13,7 @@ export class Service{
                 this.databases = new Databases(this.client) // initialize the Databases service with the configured client
                 this.bucket = new Storage(this.client) // initialize the Storage service with the configured client
     }
-           async createPost({title,slug,content,image,status ,userId}){
+           async createPost({title,slug,content,featuredImage,status ,userId}){
             try {
                 return await this.databases.createDocument(
                     conf.appwriteDatabaseId, 
@@ -23,7 +23,7 @@ export class Service{
                         title,
                         slug,
                         content,
-                        image,
+                        featuredImage,
                         status,
                         userId, 
                     }
@@ -33,7 +33,7 @@ export class Service{
             }
            }
 
-           async updatePost(slug,{title,content,image,status }){  //slug fpr unique identification of the post to be updated, and the second para is an obj containing the updated data
+           async updatePost(slug,{title,content,featuredImage,status }){  //slug fpr unique identification of the post to be updated, and the second para is an obj containing the updated data
             try {
                return await this.databases.updateDocument(
                     conf.appwriteDatabaseId,
@@ -42,7 +42,7 @@ export class Service{
                     {
                         title,
                         content,
-                        image,
+                        featuredImage,
                         status,
                         }
                 )
