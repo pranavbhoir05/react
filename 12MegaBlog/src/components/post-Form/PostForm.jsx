@@ -34,13 +34,8 @@ function PostForm(post) {
                 
             })
             if(dbPost){
-                navigate(`/post/${dbPost.$id}`)
-            }
-        }else{ //hold
-              const file = await appwriteService.uploadFile(data.image[0]);
-
-           
-        }
+             
+        }else 
     }
 
   return (
