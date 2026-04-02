@@ -22,7 +22,7 @@ function PostForm(post) {
 
     const submit = async (data) =>{
         if(post){
-            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null  //it means if user has uploaded a new image, then upload it to Appwrite and get the file object, else set file to null
            if(file){
             appwriteService.deleteFile(post.featuredImage) //deleting the old image, if new img is uploaded
                 } 
@@ -30,10 +30,13 @@ function PostForm(post) {
         const dbPost = await appwriteService.updatePost(
             post.$id,{  //Document ID (from Appwrite) , Tells which post to update
                 ...data,  //Spreads form data: title,slug and all
-                featuredImage: file ? file.$id : undefined
+                featuredImage: file ? file.$id : undefined  //If new file is uploaded, use its ID(stoaring file ID in post document)
                 
             })
             if(dbPost){
+                navigate(`/post/${dbPost.$id}`) //After successful update, redirect to the post's page using its ID
+                
+            }
              
         }else 
     }
