@@ -20,27 +20,86 @@ function PostForm(post) {
         const userData = useSelector((state) => state.user.
         userData)
 
-    const submit = async (data) =>{
-        if(post){
-            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null  //it means if user has uploaded a new image, then upload it to Appwrite and get the file object, else set file to null
-           if(file){
-            appwriteService.deleteFile(post.featuredImage) //deleting the old image, if new img is uploaded
-                } 
-        
+ const submit = async (data) => {
+
+    // EDIT MODE → post already exists
+    if (post) {
+
+        // If user selected a new image → upload it
+        // data.image[0] = file from form input
+        // If no file selected → file = null
+        const file = data.image[0]
+            ? await appwriteService.uploadFile(data.image[0])
+            : null;
+
+        // If new image uploaded → delete old image from storage
+        // post.featuredImage = old file ID stored in DB
+        if (file) {
+            appwriteService.deleteFile(post.featuredImage);
+        }
+
+        // Update existing post in database
         const dbPost = await appwriteService.updatePost(
-            post.$id,{  //Document ID (from Appwrite) , Tells which post to update
-                ...data,  //Spreads form data: title,slug and all
-                featuredImage: file ? file.$id : undefined  //If new file is uploaded, use its ID(stoaring file ID in post document)
-                
-            })
-            if(dbPost){
-                navigate(`/post/${dbPost.$id}`) //After successful update, redirect to the post's page using its ID
-                
+            post.$id, // document ID → tells which post to update
+
+            {
+                ...data, // all form values (title, slug, content, status, image)
+
+                // Replace image ONLY if new file exists
+                // file.$id → new image ID from storage
+                // undefined → Appwrite ignores field → old image stays
+                featuredImage: file ? file.$id : undefined
             }
-             
-        }else 
+        );
+
+        // If update successful → redirect to updated post page
+        if (dbPost) {
+            navigate(`/post/${dbPost.$id}`);
+        }
     }
 
+    // CREATE MODE → no existing post
+    else {
+
+        // Upload image (required for new post)
+        const file = await appwriteService.uploadFile(data.image[0]);
+
+        // If upload successful
+        if (file) {
+
+            const fileId = file.$id; // get uploaded image ID
+
+            // Convert raw file → file ID (DB stores only ID, not image)
+            data.featuredImage = fileId;
+
+            // Create new post with all data + user ownership
+            const dbPost = await appwriteService.createPost({
+
+                ...data, // title, slug, content, status, featuredImage
+
+                // Attach current logged-in user ID
+                // userData.$id comes from Appwrite auth (via Redux)
+                userId: userData.$id
+            });
+
+            // If creation successful → redirect to new post page
+            if (dbPost) {
+                navigate(`/post/${dbPost.$id}`);
+            }
+        }
+    }
+};
+
+ const slugTransform = useCallback((value) =>{
+    if(value && typeof value === 'string')
+        return value
+        .trim()
+        .toLowerCase()
+        .replace(/^[a-zA-z\d\s]+/g, '-')
+    return ''
+ },[])
+
+ 
   return (
     <div>PostForm</div>
   )
