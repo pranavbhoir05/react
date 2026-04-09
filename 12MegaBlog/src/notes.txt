@@ -361,4 +361,5 @@ mar 27 2026:
 #first we'll create submit method but their are 2 cases:
 #if post value is already present then update, if not then create new entry
 #then also add delete method if file is uploaded, in if condition
-#
+
+# for better understanding chatgpt responce : https://chatgpt.com/share/69d799bd-85ec-8323-a7ad-4a033e6074b3

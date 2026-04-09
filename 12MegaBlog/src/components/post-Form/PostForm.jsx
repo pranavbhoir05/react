@@ -1,4 +1,4 @@
-import React , {useCallback}from 'react'  //React + useCallback (memoize function)
+import React , {useCallback, useEffect}from 'react'  //React + useCallback (memoize function)
 import { useForm } from 'react-hook-form'
 import {Button,Input,Select,RTE} from '../index'
 import appwriteService from '../../appwrite/config'    //Handles database + storage operations
@@ -90,15 +90,28 @@ function PostForm(post) {
     }
 };
 
- const slugTransform = useCallback((value) =>{
+//again note: 
+//useEffect → runs code  
+// useCallback → stores function
+
+ const slugTransform = useEffect((value) =>{
     if(value && typeof value === 'string')
         return value
         .trim()
         .toLowerCase()
-        .replace(/^[a-zA-z\d\s]+/g, '-')
-    return ''
+        .replace(/^[a-zA-z\d\s]+/g, '-') //if starts with letters/digits/spaces → replace with dash
+    return '' //if no value or not string → return empty slug
  },[])
 
+ React.useEffect(() => {
+const subscription = watch((value , {name}) => {
+    if(name === 'title'){
+        setValue('slug', slugTransform(value.title,
+            {shouldValidate: true}
+         ))
+    }
+})
+ },[watch, slugTransform, setValue])
  
   return (
     <div>PostForm</div>
