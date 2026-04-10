@@ -113,8 +113,26 @@ const subscription = watch((value , {name}) => {
 })
  },[watch, slugTransform, setValue])
  
+ //form is devide in 2 part , left part is 2/3 of the width and right part is 1/3 of the width
+ //left part contains title, slug and content fields while right part contains status select and image upload
   return (
-    <div>PostForm</div>
+  <form onSubmit={handleSubmit(submit)} className='flex flex-wrap'>
+    <div className='w-2/3 px-2'>
+    <Input
+    label="Title"
+    placeholder="Title"
+    className='mb-4'
+    {...register('title',{required: true})}
+    />
+    <Input
+    label='Slug'
+    placeholder='Slug'
+    className='mb-4'
+    {...register('slug', {required: true})}
+    
+    />
+    </div>
+  </form>
   )
   
 }
