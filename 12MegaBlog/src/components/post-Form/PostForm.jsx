@@ -108,7 +108,7 @@ function PostForm(post) {
 
 // AUTO SLUG GENERATION
 
- React.useEffect(() => {
+ useEffect(() => {
 
      // watch() → listens to ALL form field changes
     // It returns a "subscription" object
