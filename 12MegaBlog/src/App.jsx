@@ -16,8 +16,13 @@ function App() {
     authService.getCurrentUser() 
     .then((data)=>{
       if(data){
-        dispatch(login({data}))  // dispatching the login action with the user data
-      }else{
+        dispatch(login({userData: data}))  //  dispatching the login action with the user data
+
+        //         const data = "John"
+// { data }           // → { data: "John" }      ← key is "data"
+// { userData: data } // → { userData: "John" }  ← key is "userData"
+      
+}else{
         dispatch(logout())  // dispatching the logout action if no user data is found
       }
     })

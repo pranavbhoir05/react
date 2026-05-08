@@ -56,3 +56,18 @@ Reason it is used:
 1. Prevent content from stretching on large screens
 2. Keep layout readable
 3. Maintain consistent spacing across pages
+
+################################################################
+🔁 Where to use Container :
+✔ Header
+✔ Pages
+✔ Forms
+✔ Content sections
+
+#####################################################
+🎯 FINAL UNDERSTANDING :
+Container = layout wrapper for clean UI
+
+#################################################################33
+⚡ ONE LINE MEMORY :
+Container keeps UI centered and readable

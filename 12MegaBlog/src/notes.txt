@@ -363,3 +363,14 @@ mar 27 2026:
 #then also add delete method if file is uploaded, in if condition
 
 # for better understanding chatgpt responce : https://chatgpt.com/share/69d799bd-85ec-8323-a7ad-4a033e6074b3
+
+
+********************************************************************
+pages building:
+
+*create folder for pages and create pages for each component
+*create page for signup and import signup from components 
+*creaet page for AddPost and import container and AddPost from component and wrap AddPost in container
+
+*************************************************************************
+routing: in main.jsx

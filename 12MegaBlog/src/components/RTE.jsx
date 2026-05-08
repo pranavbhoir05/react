@@ -2,13 +2,13 @@ import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import {Controller} from 'react-hook-form'
 
-export default function RTE({name, control, label
-   defaultValue =''}) {
+export default function RTE({name, control, label,defaultValue =''}) {
   return (
-    // container full width
+    <>
+     {/* container full width */}
     <div className='w-full'>
 
-        // render label only if provided
+         {/* render label only if provided */}
       {label && <label className='inline-block mb-1 pl-1'>
         {label}</label>}
         <Controller
@@ -20,6 +20,7 @@ export default function RTE({name, control, label
        //in this render add which feilds u want to render, im rendering editor
        render={({field: {onChange}}) =>(
         <Editor
+        apiKey='6lxs798m5j29dmr7o6oujissx36ocff0iooqz7esj381ault'
         initialValue={defaultValue}   // TinyMCE internal initial state, u can also give message in sting
         init={{         //You do not use init just to load value,You use it to define the entire editor system
           height: 500,     // editor height
@@ -75,7 +76,7 @@ export default function RTE({name, control, label
         />
 
     </div>
-    />
+    </>
   )
 }
 

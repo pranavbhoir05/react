@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 // authetication  → rule for access
 // default = true → if not passed, page is treated as protected
 
-export default  function Protected({children, authetication 
+export default  function Protected({children, authentication 
     = true})      //If authentication prop is not passed,use true automatically 
     {
        const navigate = useNavigate()
@@ -24,11 +24,11 @@ export default  function Protected({children, authetication
         //if user doesnt send anything from authentication, we'will considor true
         
           //true && false !== true
-        if(authetication && authStatus !== authetication){
+        if(authentication && authStatus !== authentication){
         
           navigate('/login') //do not show AddPost ,send user to Login page
         
-        }else if(!authetication && authStatus !== authetication){
+        }else if(!authentication && authStatus !== authentication){
         
           navigate('/')      //do not show Login page ,send user to Home page
         
@@ -36,7 +36,7 @@ export default  function Protected({children, authetication
         setLoader(false) 
          //loading ends, component can render children
          //Without this: loader stays true forever
-      },[authStatus , navigate , authetication])
+      },[authStatus , navigate , authentication])
 
 
   return loader ? <h1>Loading...</h1> : <>{children}</>

@@ -5,7 +5,7 @@ import appwriteService from '../../appwrite/config'    //Handles database + stor
 import { useNavigate } from 'react-router-dom'         //Redirect user after actions
 import { useSelector } from 'react-redux'              //Access Redux store (user data)
 
-function PostForm(post) {
+function PostForm({post}) {
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues: {
             title: post?.title || '',
@@ -17,12 +17,12 @@ function PostForm(post) {
     })
 
         const navigate = useNavigate()
-        const userData = useSelector((state) => state.user.
-        userData)
+        const userData = useSelector((state) => state.auth.userData)
 
  const submit = async (data) => {
 
     // EDIT MODE → post already exists
+    try{
     if (post) {
 
         // If user selected a new image → upload it
@@ -61,32 +61,31 @@ function PostForm(post) {
     // CREATE MODE → no existing post
     else {
 
-        // Upload image (required for new post)
-        const file = await appwriteService.uploadFile(data.image[0]);
+    const file = await appwriteService.uploadFile(data.image[0]);
 
-        // If upload successful
-        if (file) {
+    if (file) {
 
-            const fileId = file.$id; // get uploaded image ID
+        const fileId = file.$id;
 
-            // Convert raw file → file ID (DB stores only ID, not image)
-            data.featuredImage = fileId;
+        data.featuredImage = fileId;
 
-            // Create new post with all data + user ownership
-            const dbPost = await appwriteService.createPost({
+        console.log("FILE:", file)
+        console.log("DATA:", data)
 
-                ...data, // title, slug, content, status, featuredImage
+        const dbPost = await appwriteService.createPost({
+            ...data,
+            userId: userData.$id
+        });
 
-                // Attach current logged-in user ID
-                // userData.$id comes from Appwrite auth (via Redux)
-                userId: userData.$id
-            });
+        console.log("DB POST:", dbPost)
 
-            // If creation successful → redirect to new post page
-            if (dbPost) {
-                navigate(`/post/${dbPost.$id}`);
-            }
+        if (dbPost) {
+            navigate(`/post/${dbPost.$id}`);
         }
+    }
+}
+    }catch(error){
+        console.error("Error occurred while submitting post:", error);
     }
 };
 
@@ -101,8 +100,9 @@ function PostForm(post) {
         return value
         .trim()
         .toLowerCase()
-        .replace(/^[a-zA-z\d\s]+/g, '-') //if starts with letters/digits/spaces → replace with dash
-    return '' //if no value or not string → return empty slug
+        .replace(/[^a-zA-Z\d]+/g, '-')  // replace non-alphanumeric with dash
+        .replace(/^-+|-+$/g, '')         // remove leading/trailing dashes   
+          return '' //if no value or not string → return empty slug
  },[])
    // [] → function created only once (not on every render)
 
@@ -148,7 +148,7 @@ function PostForm(post) {
         subscription.unsubscribe()
     }
 
-}, [watch, slugTransform, setValue])
+}, [ slugTransform, setValue])
 
 // Dependencies:
 // watch → form listener
@@ -176,7 +176,7 @@ function PostForm(post) {
                 <Input
                     label='Slug'
                     {...register('slug', {required: true})}
-                    onChange={(e)=>{
+                    onInput={(e)=>{
 
                         // user types → we clean it
                         setValue(
@@ -212,7 +212,7 @@ function PostForm(post) {
                 {/* SHOW IMAGE IF EDIT MODE */}
                 {post && (
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={appwriteService.getFileView(post.featuredImage)}
                         // fileId → converted to URL
 
                         alt={post.title}
@@ -231,7 +231,7 @@ function PostForm(post) {
                 {/* SUBMIT BUTTON */}
                 <Button type='submit'>
                     {post ? "Update" : 'Submit'}
-                    // dynamic button text
+                    {/* // dynamic button text */}
                 </Button>
             </div>
         </form>

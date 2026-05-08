@@ -50,7 +50,7 @@ function Login() {
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
       <form onSubmit={handleSubmit(login)} //handleSubmit is a function provided by react-hook-form that wraps the login function, allowing it to handle form submission and validation. When the form is submitted, handleSubmit will validate the form data and then call the login function with the validated data if there are no errors.
       className='mt-8'>
-        <div className='-space-y-5'>
+        <div className='space-y-5'>
           <Input
             label='Email'
             placeholder='Enter your email'
@@ -69,9 +69,10 @@ function Login() {
           label='Password'
           placeholder='Enter your password'
           type='password'
-          {...register('password'),{
+
+          {...register('password',{
             required: true,
-          }}
+  })}
           />
           <Button
           type='submit'

@@ -24,6 +24,7 @@ export class AuthService {
                 //call the login method to create a session for the newly created account
             return await this.login({email, password})
             }
+            return null //explicit null if creation fails
         } catch (error) {
             throw error
         }
@@ -49,7 +50,8 @@ export class AuthService {
                 return null
             }
         } catch (error) {
-            throw error
+             console.log("appwrite auth :: getCurrentUser :: error", error)
+        return null  
         }
     }
     
@@ -57,7 +59,7 @@ export class AuthService {
         try {
             await this.account.deleteSessions()
         } catch (error) {
-            throw error
+          console.log("appwrite auth :: logout :: error", error)
         }
     }
 }

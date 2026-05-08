@@ -8,7 +8,7 @@ When your route has a dynamic segment, like:
 
 <Route path="/user/:id" element={<User />} />
 
-Here, :id is a URL param.
+Here, :id is a URL param.   
 
 
 ✅ One-liner summary

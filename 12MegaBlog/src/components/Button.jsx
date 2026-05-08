@@ -9,9 +9,11 @@ function Button({
     ...props                //By using the rest operator, we can easily pass any additional props to the button element without having to worry about them in the Button component
 }) {
   return (
-   <button className={`px-4 py-2 rounded-lg ${className} ${bgColor} 
-   ${textColor}`}{...props}>  
-    {children}
+   <button className={`px-4 py-2 rounded-lg ${className} ${bgColor} ${textColor}`}
+   {...props}
+   type={type}
+   >  
+   {children}
     </button>
   )
 }

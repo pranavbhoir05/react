@@ -19,9 +19,9 @@ function Signup() {
         try {
             const userData = await authService.createAccount(data)
             if(userData) {
-               const userData =  await authService.
+               const currentUser =  await authService.
                getCurrentUser()
-               if(userData) dispatch(login(userData))  
+               if(currentUser) dispatch(login({userData:currentUser}))    //slice expects { userData: ... }  
                 navigate('/')
             } 
         } catch (error) {
@@ -50,9 +50,9 @@ function Signup() {
 
             <form onSubmit={handleSubmit(create)}
               className='mt-8'>
-                <div className='space-x-5'>
+                <div className='space-y-5'>
                     <Input
-                    lable="Full Name"
+                    label="Full Name"
                     placeholder= "Enter your full name"
                     {...register("name" ,{
                         required:true
@@ -83,7 +83,7 @@ function Signup() {
                  <Button
                           type='submit'
                           className='w-full mt-5'
-                          >Create Accout
+                          >Create Account
                           </Button>       
                 </div>
             </form>

@@ -1,4 +1,4 @@
-import conf from '../conf.js'
+import conf from '../conf/conf.js'
 import { Client, Databases, Storage, Query, ID } from 'appwrite'
 
 export class Service{
@@ -51,12 +51,12 @@ export class Service{
             }
         }
         
-            async deletePost(postId){
+            async deletePost(slug){
             try {
                 await this.databases.deleteDocument(
                     conf.appwriteDatabaseId,
                     conf.appwriteCollectionId,
-                    postId
+                    slug
                 )
                 return true
             } catch (error) {
@@ -68,12 +68,12 @@ export class Service{
             //to get single post by id , → fetch post data, 
             // getPost() does not return the image itself.
             // It returns post data, and the image field is only a file ID.
-            async getPost(postId){
+            async getPost(slug){
                 try {
                     return await this.databases.getDocument(
                         conf.appwriteDatabaseId,
                         conf.appwriteCollectionId,
-                        postId
+                        slug
                     )
                 } catch (error) {
                 console.log("appwrite service :: getpost :: error",error);
@@ -83,18 +83,17 @@ export class Service{
                
             //to get all posts
             //i want to get all posts with active status only
-            async getAllPosts(queries = [Query.equal('status','active')]){    //status is key in the database(appwrite) and active is the value we want to filter by
+            async getAllPosts(queries = [Query.equal('status','active')]){ //status is key in the database(appwrite) and active is the value we want to filter by
              try {
-                return await this.databases.listDocuments(
+                 return await this.databases.listDocuments(
                      conf.appwriteDatabaseId,
-                     conf.appwriteCollectionId,
-                      queries,
-                    )
-             } catch (error) {
-                console.log("appwrite service :: getAllPosts :: error", error);
-                return false
-             }
-            } 
+                     conf.appwriteCollectionId, 
+                     queries,
+                     ) }
+                      catch (error) { 
+                        console.log("appwrite service :: getAllPosts :: error", error); 
+                        return false 
+                    } }
             
             //file upload service
             async uploadFile(file){
@@ -127,11 +126,11 @@ export class Service{
             //file preview service 
             //Why getFilePreview() is needed
             // Storage converts the file ID into a real image URL.
-            async getFilePreview(fileId){
-                return this.bucket.getFilePreview(
+             getFileView(fileId){
+                return this.bucket.getFileView(
                     conf.appwriteBucketId,
                     fileId
-                )
+                ).toString()
             }
         }   
 
