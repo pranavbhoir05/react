@@ -6,20 +6,20 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const arr = [3,7,2,9,1]
 
-  return (
-   <div className='flex w-full justify-center px-4 py-8 bg-green-500'>
-    <div className='mx-auto bg-gray-500 rounded-xl p-4 border'>
-      <div className='mb-2 flex justify-center'>
-<span className='inline-block w-full max-w-[200px]' > pranav </span>
-      </div>
-      <h2 className='justify-center text-center font-bold text-xl'>Welcome to React</h2>
-      <p className='mt-2 text-center text-black/50 text-base'>This is a simple React app.</p>
-   
-    </div>
-   </div>
-  )
+let mine = []
+for (let i = arr.length - 1; i >= 0 ; i--) {
+  // if(arr[i] > mine){
+    mine.push(arr[i])
+  // }
+
+}
+console.log(mine);
+
+return(<div>{mine}</div>)
+
 }
 
 export default App
+

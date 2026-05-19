@@ -1,0 +1,34 @@
+*config backend
+*first crate backend in index.js with products
+#Everything after ? is query data, so thats why (req.query.search)
+
+*now config frontend also install axios
+
+#now the task is how to brings all the products in frontend
+*now import axios in app
+*we know its our backend, i'll get CORES ERROR, SO THAT SET PROXY IN VITE config FILE
+*whenever our compoent mount, product lenght must show,use useeffect
+*now fetch api calls and call setproducts
+*for error hanlding create separate state for error hanlding make state false
+*make seterror true in catch(), but if u run that function that'll cause issue
+*so make seterror (false) in begining of trycatch,  this edgecase must also remember as coder
+*there can be another scenario when, we dont recive the data, it yet to come but havent come yet 
+*so create loading state , call setloading at begining of trycatch and make it true,
+*again call setloading when data is fetch and make setloading false, also add setloading false in error hanlding
+
+#this whole process is too common that people create them as hook
+#lets create hook, note u can als create this hook in separete file, best practice
+*copy entire states and useeffect and create new function and paste in that function, make sure comment old code
+#that newly created function accepts parameter
+*remove api/products and insted pass the same thing u will define in parameter 
+*and also return all the states which are defined in array
+*now go to old function and add the newly created function in it and pass the api('/api/products') 
+*and just cause we are returning array pass are this in array format in that function
+
+#congrates now you can handle apis like pro 
+
+*time to add input felid, whenever i search for the feild must show reponse and cancel mucltiple request
+*first create state for search and also add input feild in ui also add onchange event handler
+*there is feature in axios AbortController so add AbortController in useeffect holding in variable
+*also while getting axios.get make change on api and add search, in here we also get option (signal) which come from AbortController
+* so declear   signal: controller.signal in {}, also add search in dependancy array
