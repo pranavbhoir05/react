@@ -15,8 +15,11 @@ function App() {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
+    
     const controller = new AbortController() 
-    ;(async() => {
+
+    const timeout = setTimeout(() => {
+      ;(async() => {
     try {
       setLoading(true)
       setError(false)
@@ -35,8 +38,11 @@ function App() {
       setLoading(false)
     }
     })()
+    }, 500);
 
+    //cleanup function
     return () =>{
+      clearTimeout(timeout)
       controller.abort()
     }
   }, [search])  // whenever search changes the useEffect will run and make a new request to the server with the updated search query.

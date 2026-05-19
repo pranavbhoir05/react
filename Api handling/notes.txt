@@ -27,8 +27,14 @@
 
 #congrates now you can handle apis like pro 
 
+
+#adding input feild and hanlding multiple request(to cancel multiple request)
 *time to add input felid, whenever i search for the feild must show reponse and cancel mucltiple request
 *first create state for search and also add input feild in ui also add onchange event handler
 *there is feature in axios AbortController so add AbortController in useeffect holding in variable
 *also while getting axios.get make change on api and add search, in here we also get option (signal) which come from AbortController
 * so declear   signal: controller.signal in {}, also add search in dependancy array
+
+#debouncing (add extra update to avoid multiple request)
+*wrap entire code from async to catch error in settimeout and hold in variable
+*in return call (clearTimeout) inside the cleanup function
